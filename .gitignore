@@ -3,3 +3,4 @@ images.tar.gz
 .python_packages
 __pycache__
 .venv
+.vscode/
