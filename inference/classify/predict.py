@@ -1,5 +1,3 @@
-
-from datetime import datetime
 from PIL import Image
 from torchvision import transforms
 from urllib.request import urlopen
@@ -61,14 +59,12 @@ def predict_image_from_url(image_url):
 
             with torch.no_grad():
                 output = model(input_batch)
-            # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
-            print(output[0])
+
             # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
             softmax = (torch.nn.functional.softmax(output[0], dim=0))
             out = class_dict[softmax.argmax().item()]
 
             response = {
-                'created': datetime.utcnow().isoformat(),
                 'predictedTagName': out,
                 'prediction': softmax.max().item()
             }
