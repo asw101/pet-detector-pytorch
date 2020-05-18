@@ -128,7 +128,7 @@
         onSubmit: function (event) {
           this.waiting = true;
           superagent
-            .get(apiBaseUrl + '/api/classifynew?code=RLBqI9VxwXNagso6/0a0b2sKuQ5ooDznjv2je/oxHSx42LpgrajLwg==')
+            .get(apiBaseUrl + '/api/classify?code=RLBqI9VxwXNagso6/0a0b2sKuQ5ooDznjv2je/oxHSx42LpgrajLwg==')
             .query('img=' + this.url)
             .end(function (err, res) {
               this.waiting = false;
